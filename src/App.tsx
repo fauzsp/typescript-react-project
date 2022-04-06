@@ -43,6 +43,17 @@ function App() {
       </div>
     );
   }
+
+  //List
+  function List<listItem>({items, render}: {items: listItem[]; render: (items) => ReactNode}) {
+    return (
+      <ul>
+        {items.map((item) => (
+          <li>{render(item)}</li>
+        ))}
+      </ul>
+    )
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -67,6 +78,7 @@ function App() {
         >
           Learn React
         </a>
+        <List items={["Foo", "Bar", "Buz", "Wee"]} render={(items) => <div>{items.toLowerCase()}</div>} />
       </header>
     </div>
   );
